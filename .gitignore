@@ -1,0 +1,43 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Build output
+/target/
+/build/
+/out/
+build/
+node_modules/
+dist/
+
+# VS Code
+.vscode/
+.history/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment & local settings
+.env
+*.env
+
+# Others
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Node (in case you add frontend)
+/node_modules/
+/dist/
+
+# Test reports
+/test-output/
+*.exec
+*.ec

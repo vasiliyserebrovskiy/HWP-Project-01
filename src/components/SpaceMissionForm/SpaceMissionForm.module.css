@@ -1,0 +1,9 @@
+.mainForm {
+  border: 2px solid darkred;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+}

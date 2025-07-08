@@ -9,7 +9,7 @@ export default function SpaceMissionForm() {
   );
   const [planet, setPlanet] = useState<string>("Mars");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (name === "") {
       setMessage("Please enter your name to begin your mission.");
@@ -39,7 +39,9 @@ export default function SpaceMissionForm() {
         <option value="Jupiter">Jupiter</option>
         <option value="Saturn">Saturn</option>
       </select>
-      <button type="submit">Submit</button>
+      <button type="submit" className={style.btnSubmit}>
+        Submit
+      </button>
       <p>{message}</p>
     </form>
   );

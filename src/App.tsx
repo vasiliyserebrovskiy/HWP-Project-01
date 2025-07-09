@@ -8,6 +8,7 @@ import ThankYou from "./components/ThankYou/ThankYou";
 //variables for ProfileCard
 import avatar from "./assets/poodle.jpeg";
 import SpaceMissionForm from "./components/SpaceMissionForm/SpaceMissionForm";
+import { GenderByName } from "./components/GenderByName/GenderByName";
 const name = "Some Name";
 const description = "Beautiful poodles from Colone.";
 
@@ -15,6 +16,7 @@ function App() {
   return (
     <>
       <Greeting name={"Vasilii"} />
+      <GenderByName />
       <SpaceMissionForm />
       <Goodbye />
       {/* <Card url={"/poodle.jpeg"} alt={"Some dog"} /> */}

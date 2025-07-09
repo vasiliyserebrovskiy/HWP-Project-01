@@ -11,10 +11,11 @@ export const GenderByName = () => {
 
   async function fetchGender(name: string) {
     try {
+      setErrorMessage("");
       const res = await fetch(`https://api.genderapi.io/api/?name=${name}`);
       if (res.status == 404) {
         setData(null);
-        throw Error("To many request.Please wait");
+        throw Error("To many request.Please wait.");
       }
       const resData: ResObj = await res.json();
 

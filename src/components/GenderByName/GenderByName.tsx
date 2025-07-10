@@ -60,7 +60,11 @@ export const GenderByName = () => {
         </button>
       </div>
       <div className={style.responseDiv}>
-        {data ? <ResponseSection data={data} /> : <p>No data!</p>}
+        {data ? (
+          <ResponseSection data={data} />
+        ) : (
+          <p>You need enter you name to see received information here!</p>
+        )}
       </div>
     </section>
   );

@@ -1,27 +1,40 @@
 import "./App.css";
-// import Card from "./components/Card/Card";
-import Goodbye from "./components/Goodbye/Goodbye";
-import Greeting from "./components/Greeting/Greeting";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
-import ThankYou from "./components/ThankYou/ThankYou";
-
-//variables for ProfileCard
 import avatar from "./assets/poodle.jpeg";
 import SpaceMissionForm from "./components/SpaceMissionForm/SpaceMissionForm";
 import { GenderByName } from "./components/GenderByName/GenderByName";
-const name = "Some Name";
-const description = "Beautiful poodles from Colone.";
+import { profileName, profileDescription } from "./constants/variables";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ROUTES } from "./constants/routes";
+import { MainLayout } from "./layout/MainLayout";
+import Home from "./pages/Home/Home";
+import Registration from "./pages/Registration/Registration";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   return (
     <>
-      <Greeting name={"Vasilii"} />
-      <GenderByName />
-      <SpaceMissionForm />
-      <Goodbye />
-      {/* <Card url={"/poodle.jpeg"} alt={"Some dog"} /> */}
-      <ProfileCard avatar={avatar} name={name} description={description} />
-      <ThankYou />
+      <BrowserRouter>
+        <Routes>
+          <Route path={ROUTES.HOME} element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path={ROUTES.REGISTRATION} element={<Registration />} />
+            <Route path={ROUTES.GENDER_BY_NAME} element={<GenderByName />} />
+            <Route path={ROUTES.SPACE_MISSION} element={<SpaceMissionForm />} />
+            <Route
+              path={ROUTES.PROFILE_CARD}
+              element={
+                <ProfileCard
+                  avatar={avatar}
+                  name={profileName}
+                  description={profileDescription}
+                />
+              }
+            />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

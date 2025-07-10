@@ -27,6 +27,9 @@ export const NavBar = () => {
         <Link to={ROUTES.CONTACTS} className={style.link}>
           Contacts
         </Link>
+        <Link to={ROUTES.ACCOUNT} className={style.link}>
+          My Account
+        </Link>
       </nav>
     </>
   );

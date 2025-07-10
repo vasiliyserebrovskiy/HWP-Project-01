@@ -12,6 +12,9 @@ import Registration from "./pages/Registration/Registration";
 import NotFound from "./pages/NotFound/NotFound";
 import { About } from "./components/About/About";
 import { Contacts } from "./components/Contacts/Contacts";
+import { SettingsLayout } from "./layout/SettingsLayout";
+import { AccountSettings } from "./components/AccountSettings/AccountSettings";
+import { UserInformation } from "./components/UserInformation/UserInformation";
 
 function App() {
   return (
@@ -35,6 +38,16 @@ function App() {
             />
             <Route path={ROUTES.ABOUT} element={<About />} />
             <Route path={ROUTES.CONTACTS} element={<Contacts />} />
+            <Route path={ROUTES.ACCOUNT} element={<SettingsLayout />}>
+              <Route
+                path={ROUTES.ACCOUNT_SETTINGS}
+                element={<AccountSettings />}
+              />
+              <Route
+                path={ROUTES.USER_INFORMATION}
+                element={<UserInformation />}
+              />
+            </Route>
             <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
           </Route>
         </Routes>

@@ -1,0 +1,33 @@
+.section {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.mainDiv {
+  background-color: #1e1e1e;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  color: #ffffff;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+nav {
+  display: flex;
+  gap: 16px;
+}
+
+.link {
+  color: rgb(208, 24, 24);
+  border: 2px solid darkgreen;
+  border-radius: 25px;
+  padding: 10px;
+}

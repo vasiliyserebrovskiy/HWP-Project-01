@@ -6,5 +6,8 @@ export const ROUTES = {
   PROFILE_CARD: "/profile-card",
   ABOUT: "/about",
   CONTACTS: "/contacts",
+  ACCOUNT: "/account",
+  ACCOUNT_SETTINGS: "/account/settings",
+  USER_INFORMATION: "/account/user-information",
   NOT_FOUND: "*",
 } as const;

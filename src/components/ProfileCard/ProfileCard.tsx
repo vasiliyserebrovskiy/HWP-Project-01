@@ -3,14 +3,16 @@ interface Props {
   name: string;
   description: string;
 }
-import "./ProfileCard.css";
+import style from "./ProfileCard.module.css";
 
 export default function ProfileCard({ avatar, name, description }: Props) {
   return (
-    <div className="profile-card">
-      <h2>{name}</h2>
-      <img src={avatar} alt="User avatar" />
-      <p>{description}</p>
-    </div>
+    <section className={style.profileCardWrapper}>
+      <div className={style.profileCard}>
+        <h2>{name}</h2>
+        <img src={avatar} alt="User avatar" />
+        <p>{description}</p>
+      </div>
+    </section>
   );
 }

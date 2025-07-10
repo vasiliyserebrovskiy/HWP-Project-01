@@ -10,6 +10,8 @@ import { MainLayout } from "./layout/MainLayout";
 import Home from "./pages/Home/Home";
 import Registration from "./pages/Registration/Registration";
 import NotFound from "./pages/NotFound/NotFound";
+import { About } from "./components/About/About";
+import { Contacts } from "./components/Contacts/Contacts";
 
 function App() {
   return (
@@ -31,7 +33,9 @@ function App() {
                 />
               }
             />
-            <Route path="*" element={<NotFound />} />
+            <Route path={ROUTES.ABOUT} element={<About />} />
+            <Route path={ROUTES.CONTACTS} element={<Contacts />} />
+            <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -21,6 +21,12 @@ export const NavBar = () => {
         <Link to={ROUTES.PROFILE_CARD} className={style.link}>
           Profile card
         </Link>
+        <Link to={ROUTES.ABOUT} className={style.link}>
+          About
+        </Link>
+        <Link to={ROUTES.CONTACTS} className={style.link}>
+          Contacts
+        </Link>
       </nav>
     </>
   );

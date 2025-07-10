@@ -1,0 +1,30 @@
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* по центру экрана */
+  background-color: #061731;
+}
+
+.mainDiv {
+  background-color: #71870e;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  border: 1px solid #263b54;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.mainDiv h2 {
+  margin-bottom: 16px;
+  color: #0b35bd;
+}
+
+.mainDiv p {
+  margin: 8px 0;
+  color: #333;
+  font-size: 16px;
+}

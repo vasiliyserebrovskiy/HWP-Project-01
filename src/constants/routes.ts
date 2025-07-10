@@ -4,5 +4,7 @@ export const ROUTES = {
   GENDER_BY_NAME: "/gender-by-name",
   SPACE_MISSION: "/space-mission",
   PROFILE_CARD: "/profile-card",
+  ABOUT: "/about",
+  CONTACTS: "/contacts",
   NOT_FOUND: "*",
 } as const;

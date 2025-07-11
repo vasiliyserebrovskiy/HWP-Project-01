@@ -44,28 +44,30 @@ export const GenderByName = () => {
   };
 
   return (
-    <section className={style.mainSection}>
-      <div className={style.inputDiv}>
-        <h2>Gender By Name</h2>
-        <p style={{ color: "red" }}>{nameErrMsg}</p>
-        {errMessage ? <p>{errMessage}</p> : null}
-        <input
-          type="text"
-          placeholder="Enter your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <button type="button" onClick={handleButton}>
-          Send
-        </button>
-      </div>
-      <div className={style.responseDiv}>
-        {data ? (
-          <ResponseSection data={data} />
-        ) : (
-          <p>You need enter you name to see received information here!</p>
-        )}
-      </div>
-    </section>
+    <div className={style.divWrapper}>
+      <section className={style.mainSection}>
+        <div className={style.inputDiv}>
+          <h2>Gender By Name</h2>
+          <p style={{ color: "red" }}>{nameErrMsg}</p>
+          {errMessage ? <p>{errMessage}</p> : null}
+          <input
+            type="text"
+            placeholder="Enter your name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <button type="button" onClick={handleButton}>
+            Send
+          </button>
+        </div>
+        <div className={style.responseDiv}>
+          {data ? (
+            <ResponseSection data={data} />
+          ) : (
+            <p>You need enter you name to see received information here!</p>
+          )}
+        </div>
+      </section>
+    </div>
   );
 };

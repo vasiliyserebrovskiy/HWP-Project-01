@@ -19,30 +19,32 @@ export default function SpaceMissionForm() {
   };
 
   return (
-    <form className={style.mainForm} onSubmit={handleSubmit}>
-      <h2>Space Mission Form</h2>
-      <label htmlFor="">
-        {formName}
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </label>
-      <select
-        name="planet"
-        value={planet}
-        onChange={(e) => setPlanet(e.target.value)}
-      >
-        <option value="Mars">Mars</option>
-        <option value="Venus">Venus</option>
-        <option value="Jupiter">Jupiter</option>
-        <option value="Saturn">Saturn</option>
-      </select>
-      <button type="submit" className={style.btnSubmit}>
-        Submit
-      </button>
-      <p>{message}</p>
-    </form>
+    <div className={style.divWrapper}>
+      <form className={style.mainForm} onSubmit={handleSubmit}>
+        <h2>Space Mission Form</h2>
+        <label htmlFor="">
+          {formName}
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </label>
+        <select
+          name="planet"
+          value={planet}
+          onChange={(e) => setPlanet(e.target.value)}
+        >
+          <option value="Mars">Mars</option>
+          <option value="Venus">Venus</option>
+          <option value="Jupiter">Jupiter</option>
+          <option value="Saturn">Saturn</option>
+        </select>
+        <button type="submit" className={style.btnSubmit}>
+          Submit
+        </button>
+        <p>{message}</p>
+      </form>
+    </div>
   );
 }

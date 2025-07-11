@@ -1,10 +1,12 @@
 .mainForm {
-  border: 2px solid darkred;
+  border: 2px solid rgb(51, 111, 74);
   border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
   padding: 20px;
   margin: 20px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
   width: 500px;
 }
@@ -21,4 +23,13 @@
 }
 .btnSubmit:hover {
   background-color: #45a049;
+}
+
+.divWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.mainForm > h2 {
+  color: #2b6d2e;
 }

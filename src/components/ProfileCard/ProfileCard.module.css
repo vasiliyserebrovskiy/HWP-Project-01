@@ -16,12 +16,13 @@
 }
 
 .profileCard h2 {
-  margin: 12px 0 8px;
+  /* margin: 12px 0 8px; */
   font-size: 20px;
+  color: darkgreen;
 }
 
 .profileCard p {
-  color: #ed0808;
+  color: #7e1f1f;
   font-size: 16px;
 }
 
@@ -29,5 +30,4 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
 }

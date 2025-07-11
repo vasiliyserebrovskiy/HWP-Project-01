@@ -1,11 +1,33 @@
-.navigation {
+.navBar {
+  background-color: rgb(12, 89, 20);
+  height: 60px;
   display: flex;
-  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
-.link {
-  color: rgb(208, 24, 24);
-  border: 2px solid darkgreen;
-  border-radius: 25px;
-  padding: 10px;
+.navBar {
+  color: black;
+  text-decoration: none;
+  font-size: x-large;
+}
+
+.navBar a:hover {
+  color: lightslategray;
+  text-decoration: none;
+  font-size: x-large;
+}
+
+.navLinkActive {
+  color: goldenrod;
+  text-decoration: none;
+  font-size: x-large;
+}
+
+.navLink {
+  color: black;
+  text-decoration: none;
+  font-size: x-large;
 }

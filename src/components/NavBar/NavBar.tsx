@@ -1,35 +1,39 @@
-import { Link } from "react-router-dom";
 import { ROUTES } from "../../constants/routes";
 import style from "./NavBar.module.css";
+import { NavLink } from "react-router-dom";
 
 export const NavBar = () => {
+  const classSelector = ({ isActive }: { isActive: boolean }) => {
+    return isActive ? style.navLinkActive : style.navLink;
+  };
+
   return (
     <>
-      <nav className={style.navigation}>
-        <Link to="/" className={style.link}>
+      <nav className={style.navBar}>
+        <NavLink to="/" className={classSelector}>
           Home
-        </Link>
-        <Link to={ROUTES.REGISTRATION} className={style.link}>
+        </NavLink>
+        <NavLink to={ROUTES.REGISTRATION} className={classSelector}>
           Sign up
-        </Link>
-        <Link to={ROUTES.GENDER_BY_NAME} className={style.link}>
+        </NavLink>
+        <NavLink to={ROUTES.GENDER_BY_NAME} className={classSelector}>
           Gender by name
-        </Link>
-        <Link to={ROUTES.SPACE_MISSION} className={style.link}>
+        </NavLink>
+        <NavLink to={ROUTES.SPACE_MISSION} className={classSelector}>
           Space mission
-        </Link>
-        <Link to={ROUTES.PROFILE_CARD} className={style.link}>
+        </NavLink>
+        <NavLink to={ROUTES.PROFILE_CARD} className={classSelector}>
           Profile card
-        </Link>
-        <Link to={ROUTES.ABOUT} className={style.link}>
+        </NavLink>
+        <NavLink to={ROUTES.ABOUT} className={classSelector}>
           About
-        </Link>
-        <Link to={ROUTES.CONTACTS} className={style.link}>
+        </NavLink>
+        <NavLink to={ROUTES.CONTACTS} className={classSelector}>
           Contacts
-        </Link>
-        <Link to={ROUTES.ACCOUNT} className={style.link}>
+        </NavLink>
+        <NavLink to={ROUTES.ACCOUNT} className={classSelector}>
           My Account
-        </Link>
+        </NavLink>
       </nav>
     </>
   );

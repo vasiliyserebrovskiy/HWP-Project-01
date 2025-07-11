@@ -1,0 +1,43 @@
+.mainSection {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+}
+
+.mainDiv {
+  border: 2px solid rgb(32, 95, 57);
+  border-radius: 30px;
+  padding: 30px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.mainDiv > h2 {
+    font-size: 45px;
+}
+
+.mainDiv > span {
+    font-size: 35px;
+    font-style: italic;
+}
+
+.imgDiv {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.imgDiv > img {
+  width: 300px;
+  border-radius: 20px;
+}
+
+.mainDiv > p {
+    font-size: 20px;
+    width: 60%;
+    text-align: justify;
+}

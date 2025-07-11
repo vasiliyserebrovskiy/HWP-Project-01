@@ -1,19 +1,23 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { ROUTES } from "../constants/routes";
 import style from "./SettingsLayout.module.css";
+import { NavLink } from "react-router-dom";
 
 export const SettingsLayout = () => {
+  const classSelector = ({ isActive }: { isActive: boolean }) => {
+    return isActive ? style.navLinkActive : style.navLink;
+  };
   return (
     <section className={style.section}>
       <div className={style.mainDiv}>
         <h2>Settings</h2>
-        <nav>
-          <Link to={ROUTES.ACCOUNT_SETTINGS} className={style.link}>
+        <nav className={style.navBar}>
+          <NavLink to={ROUTES.ACCOUNT_SETTINGS} className={classSelector}>
             Account Settings
-          </Link>
-          <Link to={ROUTES.USER_INFORMATION} className={style.link}>
+          </NavLink>
+          <NavLink to={ROUTES.USER_INFORMATION} className={classSelector}>
             User Information
-          </Link>
+          </NavLink>
         </nav>
         <Outlet />
       </div>

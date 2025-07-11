@@ -1,0 +1,51 @@
+.mainDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mainDiv > h2 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 40px;
+}
+.productsDiv {
+  display: flex;
+}
+
+.productsDiv > ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+.productCard {
+  border: 2px solid #179534;
+  border-radius: 25px;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.productCard > h3 {
+  text-align: center;
+}
+
+.productCard > img {
+  width: 150px;
+}
+
+.productCard a {
+  text-decoration: none;
+  color: #17752d;
+}
+
+.productCard a:hover {
+  text-decoration: none;
+  color: rgb(187, 187, 22);
+}

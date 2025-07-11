@@ -37,6 +37,9 @@ export const NavBar = () => {
         <NavLink to="/products" className={classSelector}>
           Products
         </NavLink>
+        <NavLink to="/Users" className={classSelector}>
+          Users
+        </NavLink>
       </nav>
     </>
   );

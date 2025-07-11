@@ -16,6 +16,8 @@ import Registration from "../pages/Registration/Registration";
 import avatar from "../assets/poodle.jpeg";
 import ProductsList from "../components/ProductsList/ProductsList";
 import ProductPage from "../pages/ProductPage/ProductPage";
+import UsersList from "../pages/UsersList/UsersList";
+import UserPage from "../pages/UserPage/UserPage";
 
 export default function AppRoutes() {
   return (
@@ -39,6 +41,8 @@ export default function AppRoutes() {
           <Route path={ROUTES.ABOUT} element={<About />} />
           <Route path="/products" element={<ProductsList />} />
           <Route path={"/products/:id"} element={<ProductPage />} />
+          <Route path="/users" element={<UsersList />} />
+          <Route path={"/users/:id"} element={<UserPage />} />
           <Route path={ROUTES.CONTACTS} element={<Contacts />} />
           <Route path={ROUTES.ACCOUNT} element={<SettingsLayout />}>
             <Route

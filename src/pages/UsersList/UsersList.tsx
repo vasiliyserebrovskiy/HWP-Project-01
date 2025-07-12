@@ -5,31 +5,45 @@ import { Link } from "react-router-dom";
 
 export default function UsersList() {
   const [users, setUsers] = useState<User[]>([]);
+  const [error, setError] = useState<string>("");
 
   useEffect(() => {
     fetchUsers();
   }, []);
 
   async function fetchUsers() {
-    const res = await fetch(`https://api.escuelajs.co/api/v1/users`);
-    const usersRes = await res.json();
-    setUsers(usersRes);
+    try {
+      const res = await fetch(`https://api.escuelajs.co/api/v1/users`);
+
+      if (!res.ok) {
+        throw new Error(`Request error: ${res.status} ${res.statusText}`);
+      }
+
+      const usersRes = await res.json();
+      setUsers(usersRes);
+    } catch (error) {
+      setError(`Error receiving users list: ${error}`);
+    }
   }
 
   return (
     <div className={style.mainDiv}>
       <h2>Users list</h2>
-      <div className={style.usersDiv}>
-        <ul>
-          {users.map((u) => (
-            <li key={"user" + u.id} className={style.userCard}>
-              <img src={u.avatar} alt="user" />
-              <h3>{u.name}</h3>
-              <Link to={`/users/${u.id}`}>User details</Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {error ? (
+        <p>{error}</p>
+      ) : (
+        <div className={style.usersDiv}>
+          <ul>
+            {users.map((u) => (
+              <li key={"user" + u.id} className={style.userCard}>
+                <img src={u.avatar} alt="user" />
+                <h3>{u.name}</h3>
+                <Link to={`/users/${u.id}`}>User details</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

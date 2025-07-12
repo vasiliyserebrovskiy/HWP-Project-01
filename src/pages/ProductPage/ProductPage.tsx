@@ -6,11 +6,21 @@ import style from "./ProductPage.module.css";
 export default function ProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState<Product | undefined>(undefined);
+  const [error, setError] = useState<string>("");
 
   async function fetchProduct(id: string | undefined) {
-    const res = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`);
-    const obj = await res.json();
-    setProduct(obj);
+    try {
+      const res = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`);
+
+      if (!res.ok) {
+        throw new Error(`Request error: ${res.status} ${res.statusText}`);
+      }
+
+      const obj = await res.json();
+      setProduct(obj);
+    } catch (error) {
+      setError(`Error receiving product details: ${error}`);
+    }
   }
 
   useEffect(() => {
@@ -19,16 +29,20 @@ export default function ProductPage() {
 
   return (
     <section className={style.mainSection}>
-      <div className={style.mainDiv}>
-        <h2>{product?.title}</h2>
-        <div className={style.imgDiv}>
-          {product?.images?.map((img, index) => (
-            <img key={index} src={img} alt={`product image ${index + 1}`} />
-          ))}
+      {error ? (
+        <p>{error}</p>
+      ) : (
+        <div className={style.mainDiv}>
+          <h2>{product?.title}</h2>
+          <div className={style.imgDiv}>
+            {product?.images?.map((img, index) => (
+              <img key={index} src={img} alt={`product image ${index + 1}`} />
+            ))}
+          </div>
+          <span>{product?.price} $</span>
+          <p>{product?.description}</p>
         </div>
-        <span>{product?.price} $</span>
-        <p>{product?.description}</p>
-      </div>
+      )}
     </section>
   );
 }

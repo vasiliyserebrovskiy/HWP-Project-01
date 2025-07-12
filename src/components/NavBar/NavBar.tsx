@@ -34,10 +34,10 @@ export const NavBar = () => {
         <NavLink to={ROUTES.ACCOUNT} className={classSelector}>
           My Account
         </NavLink>
-        <NavLink to="/products" className={classSelector}>
+        <NavLink to={ROUTES.PRODUCTS} className={classSelector}>
           Products
         </NavLink>
-        <NavLink to="/Users" className={classSelector}>
+        <NavLink to={ROUTES.USERS} className={classSelector}>
           Users
         </NavLink>
       </nav>

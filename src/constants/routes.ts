@@ -9,5 +9,9 @@ export const ROUTES = {
   ACCOUNT: "/account",
   ACCOUNT_SETTINGS: "/account/settings",
   USER_INFORMATION: "/account/user-information",
+  PRODUCTS: "/products",
+  USERS: "/users",
+  PRODUCTS_ID: "/products/:id",
+  USERS_ID: "/users/:id",
   NOT_FOUND: "*",
 } as const;

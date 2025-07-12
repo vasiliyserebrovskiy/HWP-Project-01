@@ -39,10 +39,10 @@ export default function AppRoutes() {
             }
           />
           <Route path={ROUTES.ABOUT} element={<About />} />
-          <Route path="/products" element={<ProductsList />} />
-          <Route path={"/products/:id"} element={<ProductPage />} />
-          <Route path="/users" element={<UsersList />} />
-          <Route path={"/users/:id"} element={<UserPage />} />
+          <Route path={ROUTES.PRODUCTS} element={<ProductsList />} />
+          <Route path={ROUTES.PRODUCTS_ID} element={<ProductPage />} />
+          <Route path={ROUTES.USERS} element={<UsersList />} />
+          <Route path={ROUTES.USERS_ID} element={<UserPage />} />
           <Route path={ROUTES.CONTACTS} element={<Contacts />} />
           <Route path={ROUTES.ACCOUNT} element={<SettingsLayout />}>
             <Route

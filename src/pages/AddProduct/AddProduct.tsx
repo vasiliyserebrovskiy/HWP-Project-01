@@ -58,7 +58,7 @@ const AddProduct = () => {
               title: values.title,
               price: Number(values.price),
               description: values.description,
-              categoryId: 30,
+              categoryId: Number(30),
               images: images,
             });
             resetForm();

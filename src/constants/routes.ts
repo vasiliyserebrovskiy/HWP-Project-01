@@ -1,6 +1,7 @@
 export const ROUTES = {
   HOME: "/",
   REGISTRATION: "/registration",
+  LOGIN: "/login",
   GENDER_BY_NAME: "/gender-by-name",
   SPACE_MISSION: "/space-mission",
   PROFILE_CARD: "/profile-card",

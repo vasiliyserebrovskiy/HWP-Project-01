@@ -16,15 +16,10 @@ export const NavBar = () => {
         <NavLink to={ROUTES.REGISTRATION} className={classSelector}>
           Sign up
         </NavLink>
-        <NavLink to={ROUTES.GENDER_BY_NAME} className={classSelector}>
-          Gender by name
+        <NavLink to={ROUTES.LOGIN} className={classSelector}>
+          Sign In
         </NavLink>
-        <NavLink to={ROUTES.SPACE_MISSION} className={classSelector}>
-          Space mission
-        </NavLink>
-        <NavLink to={ROUTES.PROFILE_CARD} className={classSelector}>
-          Profile card
-        </NavLink>
+
         <NavLink to={ROUTES.ABOUT} className={classSelector}>
           About
         </NavLink>

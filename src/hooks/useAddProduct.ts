@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { AddProduct } from "../types";
-
+//need add something to rebuild on server
 export default function useAddProduct() {
   const [message, setMessage] = useState<string>("");
   const [errMessage, setErrMessage] = useState<string>("");

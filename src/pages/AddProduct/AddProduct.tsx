@@ -17,20 +17,29 @@ const SignupSchema = Yup.object().shape({
   image1: Yup.string()
     .min(2, "Too Short!")
     .max(240, "Too Long!")
+    .url("Must be a valid URL")
     .required("At least one image required"),
-  image2: Yup.string().min(2, "Too Short!").max(240, "Too Long!").notRequired(),
-  image3: Yup.string().min(2, "Too Short!").max(240, "Too Long!").notRequired(),
+  image2: Yup.string()
+    .min(2, "Too Short!")
+    .max(240, "Too Long!")
+    .url("Must be a valid URL")
+    .notRequired(),
+  image3: Yup.string()
+    .min(2, "Too Short!")
+    .max(240, "Too Long!")
+    .url("Must be a valid URL")
+    .notRequired(),
 });
 
 const AddProduct = () => {
-  const { addProduct, message } = useAddProduct();
+  const { message, errMessage, addProduct } = useAddProduct();
 
   return (
     <section className={style.mainSection}>
       <div className={style.mainDiv}>
         <h1>Add new product</h1>
         {message && <div className={style.message}>{message}</div>}
-        {/* {message ? <div>{message}</div> : null} */}
+        {errMessage && <div className={style.errMessage}>{errMessage}</div>}
         <Formik
           initialValues={{
             title: "",
@@ -49,7 +58,7 @@ const AddProduct = () => {
               title: values.title,
               price: Number(values.price),
               description: values.description,
-              categoryId: Number(30),
+              categoryId: 30,
               images: images,
             });
             resetForm();

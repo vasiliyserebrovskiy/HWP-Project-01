@@ -3,11 +3,14 @@ import type { AddProduct } from "../types";
 
 export default function useAddProduct() {
   const [message, setMessage] = useState<string>("");
+  const [errMessage, setErrMessage] = useState<string>("");
 
   async function addProduct(product: AddProduct) {
-    console.log(product);
+    //console.log(product);
+    setErrMessage("");
+    setMessage("");
     try {
-      const res = await fetch(`https://api.escuelajs.co/api/v1/products/`, {
+      const res = await fetch(`https://api.escuelajs.co/api/v1/products/1`, {
         method: "POST",
         headers: { "Content-Type": "Application/JSON" },
         body: JSON.stringify(product),
@@ -16,14 +19,14 @@ export default function useAddProduct() {
         setMessage("Successfully added new product.");
       } else {
         const err = await res.json();
-        setMessage(
+        setErrMessage(
           "Error adding new product. Status: " + (err.message || res.status)
         );
       }
     } catch (error) {
-      setMessage("Network error." + error);
+      setErrMessage("Network error." + error);
     }
   }
 
-  return { addProduct, message };
+  return { message, errMessage, addProduct };
 }

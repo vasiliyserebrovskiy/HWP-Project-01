@@ -1,6 +1,7 @@
 import { Formik, Form, Field } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
+import style from "./Login.module.css";
 
 const SignupSchema = Yup.object().shape({
   password: Yup.string()
@@ -32,36 +33,44 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <h1>Signin</h1>
-      {message ? <div>{message}</div> : null}
-      <Formik
-        initialValues={{
-          password: "",
-          email: "",
-        }}
-        validationSchema={SignupSchema}
-        onSubmit={(values) => {
-          // same shape as initial values
-          console.log(values);
-          fetchLogin(values);
-        }}
-      >
-        {({ errors, touched }) => (
-          <Form>
-            <label>Password:</label>
-            <Field name="password" type="password" />
-            {errors.password && touched.password ? (
-              <div>{errors.password}</div>
-            ) : null}
-            <label>Email:</label>
-            <Field name="email" type="email" />
-            {errors.email && touched.email ? <div>{errors.email}</div> : null}
-            <button type="submit">Submit</button>
-          </Form>
-        )}
-      </Formik>
-    </div>
+    <section className={style.mainSection}>
+      <div className={style.mainDiv}>
+        <h1>Sign in</h1>
+        {message ? <div>{message}</div> : null}
+        <Formik
+          initialValues={{
+            password: "",
+            email: "",
+          }}
+          validationSchema={SignupSchema}
+          onSubmit={(values) => {
+            // same shape as initial values
+            //console.log(values);
+            fetchLogin(values);
+          }}
+        >
+          {({ errors, touched }) => (
+            <Form className={style.mainForm}>
+              <div className={style.formRow}>
+                <label>Email:</label>
+                <Field name="email" type="email" as="input" />
+                <div className={style.error}>
+                  {errors.email && touched.email ? errors.email : null}
+                </div>
+              </div>
+              <div className={style.formRow}>
+                <label>Password:</label>
+                <Field name="password" type="password" as="input" />
+                <div className={style.error}>
+                  {errors.password && touched.password ? errors.password : null}
+                </div>
+              </div>
+              <button type="submit">Submit</button>
+            </Form>
+          )}
+        </Formik>
+      </div>
+    </section>
   );
 };
 

@@ -1,6 +1,7 @@
 import { Formik, Form, Field } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
+import style from "./Registration.module.css";
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -42,46 +43,60 @@ const Registrations = () => {
   }
 
   return (
-    <div>
-      <h1>Signup</h1>
-      {message ? <div>{message}</div> : null}
-      <Formik
-        initialValues={{
-          name: "",
-          password: "",
-          avatar: "",
-          email: "",
-        }}
-        validationSchema={SignupSchema}
-        onSubmit={(values) => {
-          // same shape as initial values
-          console.log(values);
-          fetchRegister(values);
-        }}
-      >
-        {({ errors, touched }) => (
-          <Form>
-            <label>Name:</label>
-            <Field name="name" />
-            {errors.name && touched.name ? <div>{errors.name}</div> : null}
-            <label>Password:</label>
-            <Field name="password" type="password" />
-            {errors.password && touched.password ? (
-              <div>{errors.password}</div>
-            ) : null}
-            <label>Avatar:</label>
-            <Field name="avatar" />
-            {errors.avatar && touched.avatar ? (
-              <div>{errors.avatar}</div>
-            ) : null}
-            <label>Email:</label>
-            <Field name="email" type="email" />
-            {errors.email && touched.email ? <div>{errors.email}</div> : null}
-            <button type="submit">Submit</button>
-          </Form>
-        )}
-      </Formik>
-    </div>
+    <section className={style.mainSection}>
+      <div className={style.mainDiv}>
+        <h1>Sign up</h1>
+        {message ? <div>{message}</div> : null}
+        <Formik
+          initialValues={{
+            name: "",
+            password: "",
+            avatar: "",
+            email: "",
+          }}
+          validationSchema={SignupSchema}
+          onSubmit={(values) => {
+            // same shape as initial values
+            console.log(values);
+            fetchRegister(values);
+          }}
+        >
+          {({ errors, touched }) => (
+            <Form className={style.mainForm}>
+              <div className={style.formRow}>
+                <label>Name:</label>
+                <Field name="name" as="input" />
+                <div className={style.error}>
+                  {errors.name && touched.name ? errors.name : null}
+                </div>
+              </div>
+              <div className={style.formRow}>
+                <label>Password:</label>
+                <Field name="password" type="password" as="input" />
+                <div className={style.error}>
+                  {errors.password && touched.password ? errors.password : null}
+                </div>
+              </div>
+              <div className={style.formRow}>
+                <label>Avatar:</label>
+                <Field name="avatar" as="input" />
+                <div className={style.error}>
+                  {errors.avatar && touched.avatar ? errors.avatar : null}
+                </div>
+              </div>
+              <div className={style.formRow}>
+                <label>Email:</label>
+                <Field name="email" type="email" as="input" />
+                <div className={style.error}>
+                  {errors.email && touched.email ? errors.email : null}
+                </div>
+              </div>
+              <button type="submit">Submit</button>
+            </Form>
+          )}
+        </Formik>
+      </div>
+    </section>
   );
 };
 

@@ -17,7 +17,7 @@ export const NavBar = () => {
           Sign up
         </NavLink>
         <NavLink to={ROUTES.LOGIN} className={classSelector}>
-          Sign In
+          Sign in
         </NavLink>
         <NavLink to={ROUTES.ABOUT} className={classSelector}>
           About

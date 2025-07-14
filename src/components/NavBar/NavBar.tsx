@@ -19,7 +19,6 @@ export const NavBar = () => {
         <NavLink to={ROUTES.LOGIN} className={classSelector}>
           Sign In
         </NavLink>
-
         <NavLink to={ROUTES.ABOUT} className={classSelector}>
           About
         </NavLink>
@@ -31,6 +30,9 @@ export const NavBar = () => {
         </NavLink>
         <NavLink to={ROUTES.PRODUCTS} className={classSelector}>
           Products
+        </NavLink>
+        <NavLink to={ROUTES.PRODUCTS_ADD} className={classSelector}>
+          Add Product
         </NavLink>
         <NavLink to={ROUTES.USERS} className={classSelector}>
           Users

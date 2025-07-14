@@ -10,7 +10,7 @@ export default function useAddProduct() {
     setErrMessage("");
     setMessage("");
     try {
-      const res = await fetch(`https://api.escuelajs.co/api/v1/products/1`, {
+      const res = await fetch(`https://api.escuelajs.co/api/v1/products/`, {
         method: "POST",
         headers: { "Content-Type": "Application/JSON" },
         body: JSON.stringify(product),

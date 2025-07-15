@@ -1,4 +1,5 @@
 import { ROUTES } from "../../constants/routes";
+import { useCurrentUser } from "../../hooks/useCurrentUser";
 import style from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
 
@@ -6,7 +7,7 @@ export const NavBar = () => {
   const classSelector = ({ isActive }: { isActive: boolean }) => {
     return isActive ? style.navLinkActive : style.navLink;
   };
-
+  const { user } = useCurrentUser();
   return (
     <>
       <nav className={style.navBar}>
@@ -37,6 +38,7 @@ export const NavBar = () => {
         <NavLink to={ROUTES.USERS} className={classSelector}>
           Users
         </NavLink>
+        {user?.email}
       </nav>
     </>
   );

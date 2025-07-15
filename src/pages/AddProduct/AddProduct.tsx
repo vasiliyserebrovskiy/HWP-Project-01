@@ -1,10 +1,11 @@
 import { Formik, Form, Field } from "formik";
-// import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as Yup from "yup";
 import style from "./AddProduct.module.css";
 import useAddProduct from "../../hooks/useAddProduct";
+import type { Category } from "../../types";
 
-const SignupSchema = Yup.object().shape({
+const AddProductSchema = Yup.object().shape({
   title: Yup.string()
     .min(2, "Too Short!")
     .max(100, "Too Long!")
@@ -14,6 +15,7 @@ const SignupSchema = Yup.object().shape({
     .required("Required")
     .min(2, "Too Short!")
     .max(500, "Too Long!"),
+  category: Yup.number().positive("Must be positive").required("Required"),
   image1: Yup.string()
     .min(2, "Too Short!")
     .max(240, "Too Long!")
@@ -33,6 +35,17 @@ const SignupSchema = Yup.object().shape({
 
 const AddProduct = () => {
   const { message, errMessage, addProduct } = useAddProduct();
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  async function fetchCategories() {
+    const res = await fetch("https://api.escuelajs.co/api/v1/categories");
+    const categoriesRes = await res.json();
+    setCategories(categoriesRes);
+  }
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
 
   return (
     <section className={style.mainSection}>
@@ -43,13 +56,14 @@ const AddProduct = () => {
         <Formik
           initialValues={{
             title: "",
-            price: "",
+            price: "0",
             description: "",
+            category: "1",
             image1: "",
             image2: "",
             image3: "",
           }}
-          validationSchema={SignupSchema}
+          validationSchema={AddProductSchema}
           onSubmit={(values, { resetForm }) => {
             const images = [values.image1, values.image2, values.image3].filter(
               Boolean
@@ -58,7 +72,7 @@ const AddProduct = () => {
               title: values.title,
               price: Number(values.price),
               description: values.description,
-              categoryId: Number(2),
+              categoryId: Number(values.category),
               images: images,
             });
             resetForm();
@@ -89,6 +103,20 @@ const AddProduct = () => {
                     : null}
                 </div>
               </div>
+              <div className={style.formRow}>
+                <label>Category id:</label>
+                <Field name="category" as="select">
+                  {/* <option value="1">Electronics</option>
+              <option value="2">Clothes</option> */}
+                  {categories.map((c) => (
+                    <option value={c.id}>{c.name}</option>
+                  ))}
+                </Field>
+                <div className={style.error}>
+                  {errors.category && touched.category ? errors.category : null}
+                </div>
+              </div>
+
               <div className={style.formRow}>
                 <label>Image:</label>
                 <Field name="image1" />

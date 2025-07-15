@@ -13,10 +13,12 @@
 .mainDiv > h2 {
   color: darkgreen;
 }
-.infoDiv {
-  color: black;
+
+.mainDiv > span {
+  color: darkred;
 }
 
-.noInfoDiv {
-  color: darkred;
+.userInfoDiv {
+  color: black;
+  font-size: 30px;
 }

@@ -1,4 +1,5 @@
 import { ROUTES } from "../../constants/routes";
+import { useCounter } from "../../hooks/useCounter";
 import { useCurrentUser } from "../../hooks/useCurrentUser";
 import style from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
@@ -8,11 +9,15 @@ export const NavBar = () => {
     return isActive ? style.navLinkActive : style.navLink;
   };
   const { user } = useCurrentUser();
+  const { counter } = useCounter();
   return (
     <>
       <nav className={style.navBar}>
         <NavLink to="/" className={classSelector}>
           Home
+        </NavLink>
+        <NavLink to={ROUTES.COUNTER} className={classSelector}>
+          Counter
         </NavLink>
         <NavLink to={ROUTES.REGISTRATION} className={classSelector}>
           Sign up
@@ -39,6 +44,7 @@ export const NavBar = () => {
           Users
         </NavLink>
         {user?.email}
+        <span className={style.counterSpan}>{counter}</span>
       </nav>
     </>
   );

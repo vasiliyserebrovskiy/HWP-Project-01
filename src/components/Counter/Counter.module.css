@@ -1,0 +1,44 @@
+.handlePlus {
+  color: green;
+  border-radius: 15px;
+  width: 80px;
+  background-color: aquamarine;
+  background-color: aquamarine;
+}
+
+.handleMinus {
+  color: yellow;
+  border-radius: 15px;
+  width: 80px;
+  background-color: chocolate;
+  border-color: chocolate;
+}
+
+.handleReset {
+  color: red;
+  border-radius: 15px;
+  width: 80px;
+  background-color: darkblue;
+  border-color: darkblue;
+}
+
+.mainDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid darkgreen;
+  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 25px;
+  margin: 20px;
+}
+
+.maiSection {
+  display: flex;
+  justify-content: center;
+}
+
+.buttonDiv {
+  display: flex;
+  gap: 10px;
+}

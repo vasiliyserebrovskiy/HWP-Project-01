@@ -15,13 +15,23 @@ import UsersList from "../pages/UsersList/UsersList";
 import UserPage from "../pages/UserPage/UserPage";
 import Login from "../pages/Login/Login";
 import AddProduct from "../pages/AddProduct/AddProduct";
+import { Counter } from "../components/Counter/Counter";
+import { CounterProvider } from "../providers/CounterProvider";
 
 export default function AppRoutes() {
   return (
     <>
       <Routes>
-        <Route path={ROUTES.HOME} element={<MainLayout />}>
+        <Route
+          path={ROUTES.HOME}
+          element={
+            <CounterProvider>
+              <MainLayout />
+            </CounterProvider>
+          }
+        >
           <Route index element={<Home />} />
+          <Route path={ROUTES.COUNTER} element={<Counter />} />
           <Route path={ROUTES.REGISTRATION} element={<Registration />} />
           <Route path={ROUTES.LOGIN} element={<Login />} />
           <Route path={ROUTES.ABOUT} element={<About />} />

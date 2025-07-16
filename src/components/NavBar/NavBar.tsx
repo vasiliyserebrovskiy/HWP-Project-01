@@ -8,8 +8,13 @@ export const NavBar = () => {
   const classSelector = ({ isActive }: { isActive: boolean }) => {
     return isActive ? style.navLinkActive : style.navLink;
   };
-  const { user } = useCurrentUser();
+  const { user, setIsAuthorized, isAuthorized } = useCurrentUser();
   const { counter } = useCounter();
+
+  function handleLogout() {
+    setIsAuthorized(false);
+  }
+
   return (
     <>
       <nav className={style.navBar}>
@@ -45,6 +50,11 @@ export const NavBar = () => {
         </NavLink>
         {user?.email}
         <span className={style.counterSpan}>{counter}</span>
+        {isAuthorized ? (
+          <button type="button" onClick={handleLogout}>
+            Logout
+          </button>
+        ) : null}
       </nav>
     </>
   );

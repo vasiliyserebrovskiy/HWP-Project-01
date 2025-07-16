@@ -13,5 +13,6 @@ export const ROUTES = {
   USERS: "/users",
   PRODUCTS_ID: "/products/:id",
   USERS_ID: "/users/:id",
+  TOGGLE_CARD: "/toggle-card",
   NOT_FOUND: "*",
 } as const;

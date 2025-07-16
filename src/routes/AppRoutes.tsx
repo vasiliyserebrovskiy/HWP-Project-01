@@ -17,6 +17,7 @@ import Login from "../pages/Login/Login";
 import AddProduct from "../pages/AddProduct/AddProduct";
 import { Counter } from "../components/Counter/Counter";
 import { CounterProvider } from "../providers/CounterProvider";
+import ToggleCard from "../components/ToggleCard/ToggleCard";
 
 export default function AppRoutes() {
   return (
@@ -41,6 +42,7 @@ export default function AppRoutes() {
           <Route path={ROUTES.USERS} element={<UsersList />} />
           <Route path={ROUTES.USERS_ID} element={<UserPage />} />
           <Route path={ROUTES.CONTACTS} element={<Contacts />} />
+          <Route path={ROUTES.TOGGLE_CARD} element={<ToggleCard />} />
           <Route path={ROUTES.ACCOUNT} element={<SettingsLayout />}>
             <Route
               path={ROUTES.ACCOUNT_SETTINGS}

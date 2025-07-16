@@ -48,6 +48,9 @@ export const NavBar = () => {
         <NavLink to={ROUTES.USERS} className={classSelector}>
           Users
         </NavLink>
+        <NavLink to={ROUTES.TOGGLE_CARD} className={classSelector}>
+          Toggle Card
+        </NavLink>
         {user?.email}
         <span className={style.counterSpan}>{counter}</span>
         {isAuthorized ? (
